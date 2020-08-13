@@ -14,8 +14,7 @@
         android:layout_height="match_parent"
 
         android:background="@color/colorPrimaryDark"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
 
           <de.hdodenhof.circleimageview.CircleImageView
@@ -109,7 +108,8 @@
      android:translationX="-280dp"
      android:layout_width="416dp"
      android:layout_height="match_parent"
-     android:id="@+id/homeRelativeLayout">
+     android:id="@+id/homeRelativeLayout"
+     android:background="@drawable/gradient_background">
 
 
          <de.hdodenhof.circleimageview.CircleImageView
@@ -151,6 +151,76 @@
          android:textColor="#0C0A0A"
          android:textSize="16sp" />
 
+
+
+     <cn.iwgang.countdownview.CountdownView
+         android:id="@+id/countdownView"
+         style="@style/CustomFont"
+         android:layout_width="223dp"
+         android:layout_height="62dp"
+
+         android:layout_alignParentEnd="true"
+         android:layout_centerVertical="true"
+         android:layout_marginTop="-64dp"
+         android:layout_marginEnd="52dp"
+         app:isHideTimeBackground="false"
+         app:isShowDay="true"
+         app:isShowHour="true"
+         app:isShowMillisecond="true"
+         app:isShowMinute="true"
+         app:isShowSecond="true"
+         app:isTimeTextBold="true"
+         app:suffixDay="d"
+         app:suffixGravity="bottom"
+         app:suffixHour="h"
+         app:suffixMillisecond="ms"
+         app:suffixMinute="m"
+         app:suffixSecond="s"
+         app:suffixTextColor="#000000"
+         app:suffixTextSize="12sp"
+         app:timeBgColor="@color/colorAccent"
+         app:timeBgRadius="4dp"
+         app:timeTextColor="#FFFFFF"
+         app:timeTextSize="32sp" />
+
+     <TextView
+         android:id="@+id/textViewTop2"
+         style="@style/CustomFont"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/countdownView"
+         android:layout_alignParentEnd="true"
+         android:layout_marginTop="11dp"
+         android:layout_marginEnd="106dp"
+         android:fontFamily="@font/poppins"
+         android:text="Countdown to Next Draw"
+         android:textSize="16sp" />
+
+     <TextView
+         android:id="@+id/sellTextView"
+         android:layout_width="144dp"
+         android:layout_height="55dp"
+         android:layout_alignParentStart="true"
+         android:layout_alignParentTop="true"
+         android:layout_marginStart="141dp"
+         android:layout_marginTop="136dp"
+         android:background="#DA8080"
+         android:text="00,00,000"
+         android:textColor="#FFFFFF"
+         android:textSize="30sp" />
+
+     <TextView
+         android:id="@+id/textViewTop"
+         style="@style/CustomFont"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/countdownView"
+         android:layout_alignParentEnd="true"
+         android:layout_marginTop="-164dp"
+         android:layout_marginEnd="168dp"
+         android:fontFamily="@font/poppins"
+         android:text="Total sells"
+         android:textSize="16sp" />
 
 
  </RelativeLayout>
