@@ -104,126 +104,149 @@
 
     </LinearLayout>
 
- <RelativeLayout
-     android:translationX="-280dp"
-     android:layout_width="416dp"
-     android:layout_height="match_parent"
-     android:id="@+id/homeRelativeLayout"
-     android:background="@drawable/gradient_background">
+    <RelativeLayout
+
+        android:id="@+id/homeRelativeLayout"
+        android:layout_width="416dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/gradient_background"
+        android:translationX="-280dp">
 
 
-         <de.hdodenhof.circleimageview.CircleImageView
-         android:id="@+id/profile_image2"
-         android:layout_width="91dp"
-         android:layout_height="62dp"
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image2"
+            android:layout_width="91dp"
+            android:layout_height="62dp"
 
-         android:layout_marginTop="10dp"
-         android:scaleType="centerCrop"
-         android:src="@drawable/profile"
-         app:civ_border_color="#FF000000"
-         app:civ_border_width="2dp" />
-
-
-
-     <TextView
-         android:id="@+id/nameTextView2"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_alignParentEnd="true"
-         android:layout_gravity="center"
-         android:layout_marginTop="16dp"
-         android:layout_marginEnd="91dp"
-         android:text="Md Sahadat Hossain"
-         android:textColor="#090808"
-         android:textSize="20sp" />
-
-     <TextView
-         android:id="@+id/placeTextView2"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_alignParentTop="true"
-         android:layout_alignParentEnd="true"
-
-         android:layout_gravity="center"
-         android:layout_marginTop="42dp"
-         android:layout_marginEnd="148dp"
-         android:text="Narsingdi"
-         android:textColor="#0C0A0A"
-         android:textSize="16sp" />
+            android:layout_marginTop="10dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/profile"
+            app:civ_border_color="#FF000000"
+            app:civ_border_width="2dp" />
 
 
+        <TextView
+            android:id="@+id/nameTextView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="121dp"
+            android:text="Md Sahadat Hossain"
+            android:textColor="#FAF6F6"
+            android:textSize="20sp" />
 
-     <cn.iwgang.countdownview.CountdownView
-         android:id="@+id/countdownView"
-         style="@style/CustomFont"
-         android:layout_width="223dp"
-         android:layout_height="62dp"
+        <TextView
+            android:id="@+id/placeTextView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
 
-         android:layout_alignParentEnd="true"
-         android:layout_centerVertical="true"
-         android:layout_marginTop="-64dp"
-         android:layout_marginEnd="52dp"
-         app:isHideTimeBackground="false"
-         app:isShowDay="true"
-         app:isShowHour="true"
-         app:isShowMillisecond="true"
-         app:isShowMinute="true"
-         app:isShowSecond="true"
-         app:isTimeTextBold="true"
-         app:suffixDay="d"
-         app:suffixGravity="bottom"
-         app:suffixHour="h"
-         app:suffixMillisecond="ms"
-         app:suffixMinute="m"
-         app:suffixSecond="s"
-         app:suffixTextColor="#000000"
-         app:suffixTextSize="12sp"
-         app:timeBgColor="@color/colorAccent"
-         app:timeBgRadius="4dp"
-         app:timeTextColor="#FFFFFF"
-         app:timeTextSize="32sp" />
+            android:layout_gravity="center"
+            android:layout_marginTop="43dp"
+            android:layout_marginEnd="178dp"
+            android:text="Narsingdi"
+            android:textColor="#F6F2F2"
+            android:textSize="16sp" />
 
-     <TextView
-         android:id="@+id/textViewTop2"
-         style="@style/CustomFont"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_below="@+id/countdownView"
-         android:layout_alignParentEnd="true"
-         android:layout_marginTop="11dp"
-         android:layout_marginEnd="106dp"
-         android:fontFamily="@font/poppins"
-         android:text="Countdown to Next Draw"
-         android:textSize="16sp" />
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="119dp"
+            android:layout_height="106dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="148dp"
+            android:layout_marginTop="70dp"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/earnmoney" />
 
-     <TextView
-         android:id="@+id/sellTextView"
-         android:layout_width="144dp"
-         android:layout_height="55dp"
-         android:layout_alignParentStart="true"
-         android:layout_alignParentTop="true"
-         android:layout_marginStart="141dp"
-         android:layout_marginTop="136dp"
-         android:background="#DA8080"
-         android:text="00,00,000"
-         android:textColor="#FFFFFF"
-         android:textSize="30sp" />
+        <cn.iwgang.countdownview.CountdownView
+            android:id="@+id/countdownView"
+            style="@style/CustomFont"
+            android:layout_width="223dp"
+            android:layout_height="62dp"
 
-     <TextView
-         android:id="@+id/textViewTop"
-         style="@style/CustomFont"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_below="@+id/countdownView"
-         android:layout_alignParentEnd="true"
-         android:layout_marginTop="-164dp"
-         android:layout_marginEnd="168dp"
-         android:fontFamily="@font/poppins"
-         android:text="Total sells"
-         android:textSize="16sp" />
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="-64dp"
+            android:layout_marginEnd="57dp"
+            app:isHideTimeBackground="false"
+            app:isShowDay="true"
+            app:isShowHour="true"
+            app:isShowMillisecond="true"
+            app:isShowMinute="true"
+            app:isShowSecond="true"
+            app:isTimeTextBold="true"
+            app:suffixDay="d"
+            app:suffixGravity="bottom"
+            app:suffixHour="h"
+            app:suffixMillisecond="ms"
+            app:suffixMinute="m"
+            app:suffixSecond="s"
+            app:suffixTextColor="#FFFFFF"
+            app:suffixTextSize="12sp"
+            app:timeBgColor="#5766B3"
+            app:timeBgRadius="4dp"
+            app:timeTextColor="#FFFFFF"
+            app:timeTextSize="32sp" />
+
+        <TextView
+            android:id="@+id/textViewTop2"
+            style="@style/CustomFont"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/countdownView"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="11dp"
+            android:layout_marginEnd="106dp"
+            android:fontFamily="@font/poppins"
+            android:text="Countdown to Next Draw"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"/>
+
+        <TextView
+            android:id="@+id/sellTextView"
+            android:layout_width="144dp"
+            android:layout_height="55dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="135dp"
+            android:layout_marginTop="180dp"
+            android:background="#5F6BB6"
+            android:text="00,00,000"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/textViewTop"
+            style="@style/CustomFont"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/countdownView"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="-125dp"
+            android:layout_marginEnd="174dp"
+            android:fontFamily="@font/poppins"
+            android:text="Total sells"
+            android:textColor="#FBF8F8"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="162dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="129dp"
+            android:layout_marginBottom="155dp"
+            android:background="@drawable/button"
+            android:text="Buy Your Tickets"
+            android:textAllCaps="false" />
 
 
- </RelativeLayout>
+    </RelativeLayout>
 
 
 </LinearLayout>
