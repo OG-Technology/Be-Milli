@@ -11,6 +11,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.luseen.spacenavigation.SpaceItem;
+import com.luseen.spacenavigation.SpaceNavigationView;
+import com.luseen.spacenavigation.SpaceOnClickListener;
 
 public class  HomeActivity extends AppCompatActivity {
 
@@ -19,6 +24,7 @@ public class  HomeActivity extends AppCompatActivity {
     LinearLayout navView;
     Animation fromTop,fromBottom;
     TextView navName,navPlace;
+    SpaceNavigationView dropDownNav;
 
     Button nav1,nav2,nav3,nav4;
 
@@ -35,6 +41,11 @@ public class  HomeActivity extends AppCompatActivity {
         navView=(LinearLayout) findViewById(R.id.homeLinearLayout);
         fromTop= AnimationUtils.loadAnimation(this,R.anim.fromtop);
         fromBottom=AnimationUtils.loadAnimation(this,R.anim.frombottom);
+
+
+        dropDownNav=findViewById(R.id.space);
+        dropDownNav.addSpaceItem(new SpaceItem("Notification", R.drawable.ntf_icon));
+        dropDownNav.addSpaceItem(new SpaceItem("Message", R.drawable.msg_icon));
 
         navName=(TextView)findViewById(R.id.navNameTextView);
         navPlace=(TextView)findViewById(R.id.navPlaceTextView);
@@ -68,6 +79,25 @@ public class  HomeActivity extends AppCompatActivity {
                 navView.animate().translationX(-1000);
             }
         });
+
+
+        dropDownNav.setSpaceOnClickListener(new SpaceOnClickListener() {
+            @Override
+            public void onCentreButtonClick() {
+                Toast.makeText(HomeActivity.this,"onCentreButtonClick", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onItemClick(int itemIndex, String itemName) {
+                Toast.makeText(HomeActivity.this, itemIndex + " " + itemName, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onItemReselected(int itemIndex, String itemName) {
+                Toast.makeText(HomeActivity.this, itemIndex + " " + itemName, Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
 }
