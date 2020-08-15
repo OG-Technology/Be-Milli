@@ -78,11 +78,11 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-
+//https://github.com/armcha/Space-Navigation-View
         dropDownNav.setSpaceOnClickListener(new SpaceOnClickListener() {
             @Override
             public void onCentreButtonClick() {
-                Toast.makeText(HomeActivity.this,"onCentreButtonClick", Toast.LENGTH_SHORT).show();
+                Toast.makeText(HomeActivity.this,"Winners", Toast.LENGTH_SHORT).show();
             }
 
             @Override

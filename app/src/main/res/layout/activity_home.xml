@@ -255,7 +255,7 @@
             app:centre_button_color="@color/centre_button_color"
             app:inactive_item_color="#FFFFFF"
             app:space_background_color="@color/colorPrimary"
-            app:centre_button_icon="@drawable/winner_icon"
+            app:centre_button_icon="@drawable/home_icon"
             app:space_item_icon_size="@dimen/space_item_icon_default_size"
             app:space_item_icon_only_size="@dimen/space_item_icon_only_size"
             app:space_item_text_size="@dimen/space_item_text_default_size" />
