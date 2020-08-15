@@ -3,7 +3,7 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#211044</color>
     <color name="colorAccent">#E94A47</color>
-
+    <color name="fb">#3b5998</color>
     <color name="button">#ffd700</color>
-
+    <color name="google">#db3236</color>
 </resources>
