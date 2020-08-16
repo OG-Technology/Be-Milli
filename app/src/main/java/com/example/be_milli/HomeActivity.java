@@ -2,6 +2,8 @@ package com.example.be_milli;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
@@ -85,6 +87,8 @@ public class  HomeActivity extends AppCompatActivity {
             @Override
             public void onCentreButtonClick() {
                 Toast.makeText(HomeActivity.this,"onCentreButtonClick", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(HomeActivity.this, WniierActivity.class);
+                startActivity(intent);
             }
 
             @Override
