@@ -30,11 +30,7 @@ public class  HomeActivity extends AppCompatActivity {
 
     Button nav1,nav2,nav3,nav4;
 
-
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void profile(View view){
         setContentView(R.layout.activity_home);
 
         homeProfileImage=(ImageView) findViewById(R.id.profile_image2);
@@ -74,7 +70,7 @@ public class  HomeActivity extends AppCompatActivity {
                 navPlace.startAnimation(fromTop);
             }
         });
-       homeView.setOnClickListener(new View.OnClickListener() {
+        homeView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 homeView.animate().translationX(-1000);
@@ -87,7 +83,7 @@ public class  HomeActivity extends AppCompatActivity {
             @Override
             public void onCentreButtonClick() {
                 Toast.makeText(HomeActivity.this,"onCentreButtonClick", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(HomeActivity.this, WniierActivity.class);
+                Intent intent = new Intent(HomeActivity.this, WinnerActivity.class);
                 startActivity(intent);
             }
 
@@ -99,6 +95,19 @@ public class  HomeActivity extends AppCompatActivity {
             @Override
             public void onItemReselected(int itemIndex, String itemName) {
                 Toast.makeText(HomeActivity.this, itemIndex + " " + itemName, Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_welcome);
+        Button getStarted=findViewById(R.id.getStartedBtn);
+        getStarted.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(WelcomeActivity.this, LoginActivity.class);
+                startActivity(i);
             }
         });
 

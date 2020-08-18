@@ -1,14 +1,13 @@
 package com.example.be_milli;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
-public class WniierActivity extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
 
+public class WelcomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.winner_activity);
+        setContentView(R.layout.activity_welcome);
     }
 }
