@@ -30,7 +30,9 @@ public class  HomeActivity extends AppCompatActivity {
 
     Button nav1,nav2,nav3,nav4;
 
-    public void profile(View view){
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
         homeProfileImage=(ImageView) findViewById(R.id.profile_image2);
@@ -98,19 +100,8 @@ public class  HomeActivity extends AppCompatActivity {
             }
         });
     }
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_welcome);
-        Button getStarted=findViewById(R.id.getStartedBtn);
-        getStarted.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(WelcomeActivity.this, LoginActivity.class);
-                startActivity(i);
-            }
-        });
+
 
     }
 
-}
+
