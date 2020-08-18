@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".WinnerActivity"></activity>
+        <activity android:name=".OtpActivity"></activity>
+        <activity android:name=".SignupActivity" />
+        <activity android:name=".NumberActivity" />
+        <activity android:name=".WinnerActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".WelcomeActivity">
             <intent-filter>
