@@ -91,18 +91,6 @@
         android:background="@drawable/primary_btn_bg"
         android:textAllCaps="false"/>
 
-    <TextView
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:id="@+id/tvac_text"
-        android:textColor="@color/colorPrimary"
-        android:text="TVAC Studio"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="32dp"/>
-
     <ProgressBar
         android:layout_height="16dp"
         android:layout_width="16dp"
