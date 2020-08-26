@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "966668571794",
+    "firebase_url": "https://be-milli-19ca5.firebaseio.com",
+    "project_id": "be-milli-19ca5",
+    "storage_bucket": "be-milli-19ca5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:966668571794:android:eb8fd343c831761692024b",
+        "android_client_info": {
+          "package_name": "com.example.be_milli"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "966668571794-q3ch50lrvlns6qm1h8of850jq927vkg2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyADvs0_eiW8zuTW28GoG2oZu7ItonMw-w8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "966668571794-q3ch50lrvlns6qm1h8of850jq927vkg2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -75,8 +75,8 @@ public class  HomeActivity extends AppCompatActivity {
         homeView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                homeView.animate().translationX(-1000);
-                navView.animate().translationX(-1000);
+                homeView.animate().translationX(-690);
+                navView.animate().translationX(-690);
             }
         });
 

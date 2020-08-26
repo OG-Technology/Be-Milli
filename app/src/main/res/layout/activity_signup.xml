@@ -19,7 +19,7 @@
         app:srcCompat="@drawable/logo" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress2"
+        android:id="@+id/signNameText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
@@ -29,14 +29,15 @@
         android:autofillHints="Name"
         android:ems="10"
         android:hint="Name"
-        android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toTopOf="@+id/editTextPhone2"
+
+        app:layout_constraintBottom_toTopOf="@+id/signEmailText"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
-        android:id="@+id/editTextPhone2"
+        android:id="@+id/signEmailText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
@@ -45,14 +46,16 @@
         android:layout_marginBottom="8dp"
         android:ems="10"
         android:hint="Email Address"
-        android:inputType="phone"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toTopOf="@+id/signPassText"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress2" />
+        app:layout_constraintTop_toBottomOf="@+id/signNameText" />
+
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/signPassText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
@@ -62,13 +65,14 @@
         android:ems="10"
         android:hint="@string/password"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword2"
+        app:layout_constraintBottom_toTopOf="@+id/signConPassText"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPhone2" />
+        app:layout_constraintTop_toBottomOf="@+id/signEmailText" />
 
     <EditText
-        android:id="@+id/editTextTextPassword2"
+        android:id="@+id/signConPassText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
@@ -82,10 +86,10 @@
         app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/signPassText" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/buttonSignConfirm"
         style="@style/Widget.AppCompat.Button"
         android:layout_width="273dp"
         android:layout_height="57dp"
@@ -97,13 +101,13 @@
         android:text="@string/continueButton"
         android:textAllCaps="false"
         android:textColor="@color/colorPrimaryDark"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintBottom_toTopOf="@+id/buttonSignFacebook"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword2" />
+        app:layout_constraintTop_toBottomOf="@+id/signConPassText" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/buttonSignFacebook"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
@@ -111,16 +115,16 @@
         android:layout_marginEnd="100dp"
         android:layout_marginBottom="5dp"
         android:background="@drawable/fbbutton"
-        android:text="@string/login_with_facebook"
+        android:text="Sign Up with Facebook"
         android:textAllCaps="false"
         android:textColor="@android:color/background_light"
-        app:layout_constraintBottom_toTopOf="@+id/button4"
+        app:layout_constraintBottom_toTopOf="@+id/buttonSignGoogle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonSignConfirm" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/buttonSignGoogle"
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginStart="100dp"
@@ -134,7 +138,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonSignFacebook" />
 
     <TextView
         android:id="@+id/textView"
@@ -147,7 +151,7 @@
         android:text="@string/sign_up_to_continue"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextEmailAddress2"
+        app:layout_constraintBottom_toTopOf="@+id/signNameText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView5" />
