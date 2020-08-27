@@ -15,11 +15,19 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class SignUpActivity extends AppCompatActivity {
-    EditText signName,signEmail,signPassword;
+    EditText signName,signEmail,signPassword,signConfirmPass;
+
+
     FirebaseAuth mAuth;
+    FirebaseDatabase userDatabase;
+    DatabaseReference reference;
+
     Button signConfirm,signGoogle,signFacebook;
+
 
 
     @Override
@@ -30,22 +38,27 @@ public class SignUpActivity extends AppCompatActivity {
         signName=findViewById(R.id.signNameText);
         signEmail=findViewById(R.id.signEmailText);
         signPassword=findViewById(R.id.signPassText);
+        signConfirmPass=findViewById(R.id.signConPassText);
 
         signConfirm=findViewById(R.id.buttonSignConfirm);
         signGoogle=findViewById(R.id.buttonSignGoogle);
         signFacebook=findViewById(R.id.buttonSignFacebook);
 
-        mAuth=FirebaseAuth.getInstance();
+
 
 
 
         signConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mAuth=FirebaseAuth.getInstance();
+                userDatabase=FirebaseDatabase.getInstance();
+                reference=userDatabase.getReference("User");
+
                 String email=signEmail.getText().toString().trim();
                 String password=signPassword.getText().toString().trim();
                 String name=signName.getText().toString().trim();
-
+                String conPass=signConfirmPass.getText().toString().trim();
 
                 if (TextUtils.isEmpty(name)){
                     signName.setError("Name is required");
@@ -62,10 +75,17 @@ public class SignUpActivity extends AppCompatActivity {
                     return;
                 }
 
-                if(password.length()<6){
+                else if(password.length()<6){
                     signPassword.setError("Password must be more than 6 character");
                     return;
                 }
+                else if(!password.equals(conPass)){
+                    signConfirmPass.setError("Password not matching");
+                    return;
+                }
+
+                HelperClass helperClass=new HelperClass(name,email,password);
+                reference.setValue(helperClass);
 
                 mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
