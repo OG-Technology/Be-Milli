@@ -93,7 +93,7 @@ public class SignUpActivity extends AppCompatActivity {
                         if(task.isSuccessful()){
 
                         Toast.makeText(SignUpActivity.this,"Registration done",Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(SignUpActivity.this,HomeActivity.class));
+                            startActivity(new Intent(SignUpActivity.this,RegistrationActivity.class));
                         }
                         else{
                             Toast.makeText(SignUpActivity.this,"Error !"+task.getException().getMessage(),Toast.LENGTH_SHORT).show();
