@@ -32,7 +32,7 @@ public class RegistrationActivity extends AppCompatActivity {
     private EditText phoneText;
     private EditText codeText;
     private Button continueAndNextBtn;
-    private String checker = "", phoneNumber = "";
+   String checker = "", phoneNumber = "";
     private RelativeLayout relativeLayout;
 
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
@@ -44,6 +44,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
 
@@ -149,7 +150,8 @@ public class RegistrationActivity extends AppCompatActivity {
                 });
     }
     private void sendUserToHomeActivity(){
-        Intent intent = new Intent(RegistrationActivity.this, HomeActivity.class);
+        Intent intent = new Intent(RegistrationActivity.this, SignUpActivity.class);
+        intent.putExtra("phone",phoneNumber);
         startActivity(intent);
         finish();
     }

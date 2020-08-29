@@ -41,8 +41,7 @@ public class SignUpActivity extends AppCompatActivity {
         signConfirmPass=findViewById(R.id.signConPassText);
 
         signConfirm=findViewById(R.id.buttonSignConfirm);
-        signGoogle=findViewById(R.id.buttonSignGoogle);
-        signFacebook=findViewById(R.id.buttonSignFacebook);
+
 
 
 
@@ -59,6 +58,7 @@ public class SignUpActivity extends AppCompatActivity {
                 String password=signPassword.getText().toString().trim();
                 String name=signName.getText().toString().trim();
                 String conPass=signConfirmPass.getText().toString().trim();
+                String phoneNumber=getIntent().getStringExtra("phone");
 
                 if (TextUtils.isEmpty(name)){
                     signName.setError("Name is required");
@@ -84,8 +84,8 @@ public class SignUpActivity extends AppCompatActivity {
                     return;
                 }
 
-                HelperClass helperClass=new HelperClass(name,email,password);
-                reference.setValue(helperClass);
+                HelperClass helperClass=new HelperClass(name,email,password,phoneNumber);
+                reference.child(phoneNumber).setValue(helperClass);
 
                 mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
@@ -93,7 +93,7 @@ public class SignUpActivity extends AppCompatActivity {
                         if(task.isSuccessful()){
 
                         Toast.makeText(SignUpActivity.this,"Registration done",Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(SignUpActivity.this,RegistrationActivity.class));
+                            startActivity(new Intent(SignUpActivity.this,HomeActivity.class));
                         }
                         else{
                             Toast.makeText(SignUpActivity.this,"Error !"+task.getException().getMessage(),Toast.LENGTH_SHORT).show();

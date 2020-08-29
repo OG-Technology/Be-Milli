@@ -2,16 +2,17 @@ package com.example.be_milli;
 
 public class HelperClass {
 
-    String name,email,password;
+    String name,email,password,phoneNumber;
 
     public HelperClass() {
 
     }
 
-    public HelperClass(String name, String email, String password) {
+    public HelperClass(String name, String email, String password, String phoneNumber) {
         this.name = name;
         this.email = email;
         this.password = password;
+        this.phoneNumber = phoneNumber;
     }
 
     public String getName() {
@@ -36,5 +37,13 @@ public class HelperClass {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 }
