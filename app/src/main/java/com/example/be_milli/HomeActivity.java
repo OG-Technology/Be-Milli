@@ -34,7 +34,6 @@ public class  HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
         homeProfileImage=(ImageView) findViewById(R.id.profile_image2);
         navProfileImage=(ImageView)findViewById(R.id.profile_image);
         homeView=(RelativeLayout)findViewById(R.id.homeRelativeLayout);
