@@ -1,23 +1,33 @@
-package com.example.be_milli;
 
-import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import android.widget.Toast;
+        package com.example.be_milli;
 
-import com.luseen.spacenavigation.SpaceItem;
-import com.luseen.spacenavigation.SpaceNavigationView;
-import com.luseen.spacenavigation.SpaceOnClickListener;
+        import androidx.annotation.NonNull;
+        import androidx.appcompat.app.AppCompatActivity;
+
+        import android.app.Activity;
+        import android.content.Intent;
+        import android.os.Bundle;
+        import android.util.Log;
+        import android.view.View;
+        import android.view.animation.Animation;
+        import android.view.animation.AnimationUtils;
+        import android.widget.Button;
+        import android.widget.ImageView;
+        import android.widget.LinearLayout;
+        import android.widget.RelativeLayout;
+        import android.widget.TextView;
+        import android.widget.Toast;
+
+        import com.google.firebase.auth.FirebaseAuth;
+        import com.google.firebase.database.DataSnapshot;
+        import com.google.firebase.database.DatabaseError;
+        import com.google.firebase.database.DatabaseReference;
+        import com.google.firebase.database.FirebaseDatabase;
+        import com.google.firebase.database.ValueEventListener;
+        import com.luseen.spacenavigation.SpaceItem;
+        import com.luseen.spacenavigation.SpaceNavigationView;
+        import com.luseen.spacenavigation.SpaceOnClickListener;
 
 public class  HomeActivity extends AppCompatActivity {
 
@@ -25,8 +35,11 @@ public class  HomeActivity extends AppCompatActivity {
     RelativeLayout homeView;
     LinearLayout navView;
     Animation fromTop,fromBottom;
-    TextView navName,navPlace;
+    TextView navName,navPlace,homeName;
     SpaceNavigationView dropDownNav;
+
+
+
 
     Button nav1,nav2,nav3,nav4;
 
@@ -40,6 +53,12 @@ public class  HomeActivity extends AppCompatActivity {
         navView=(LinearLayout) findViewById(R.id.homeLinearLayout);
         fromTop= AnimationUtils.loadAnimation(this,R.anim.fromtop);
         fromBottom=AnimationUtils.loadAnimation(this,R.anim.frombottom);
+        homeName=(TextView)findViewById(R.id.nameTextView2) ;
+
+
+
+
+
 
 
         dropDownNav=findViewById(R.id.space);
@@ -101,6 +120,6 @@ public class  HomeActivity extends AppCompatActivity {
     }
 
 
-    }
+}
 
 

@@ -22,7 +22,7 @@ public class LoginActivity extends AppCompatActivity {
     Button signUp,logIn;
 
     FirebaseAuth mAuth;
-    Button logInConfirm,logInGoogle,logInFacebook;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

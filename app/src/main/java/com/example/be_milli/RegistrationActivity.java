@@ -151,7 +151,7 @@ public class RegistrationActivity extends AppCompatActivity {
     }
     private void sendUserToHomeActivity(){
         Intent intent = new Intent(RegistrationActivity.this, SignUpActivity.class);
-        intent.putExtra("phone",phoneNumber);
+        intent.putExtra("phoneNumber",phoneNumber);
         startActivity(intent);
         finish();
     }

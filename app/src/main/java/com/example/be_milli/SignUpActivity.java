@@ -21,12 +21,13 @@ import com.google.firebase.database.FirebaseDatabase;
 public class SignUpActivity extends AppCompatActivity {
     EditText signName,signEmail,signPassword,signConfirmPass;
 
-
+    String userId;
     FirebaseAuth mAuth;
     FirebaseDatabase userDatabase;
     DatabaseReference reference;
 
-    Button signConfirm,signGoogle,signFacebook;
+    Button signConfirm;
+
 
 
 
@@ -45,8 +46,6 @@ public class SignUpActivity extends AppCompatActivity {
 
 
 
-
-
         signConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,11 +53,11 @@ public class SignUpActivity extends AppCompatActivity {
                 userDatabase=FirebaseDatabase.getInstance();
                 reference=userDatabase.getReference("User");
 
-                String email=signEmail.getText().toString().trim();
-                String password=signPassword.getText().toString().trim();
-                String name=signName.getText().toString().trim();
-                String conPass=signConfirmPass.getText().toString().trim();
-                String phoneNumber=getIntent().getStringExtra("phone");
+                final String email=signEmail.getText().toString().trim();
+                final String password=signPassword.getText().toString().trim();
+                final String name=signName.getText().toString().trim();
+                final String conPass=signConfirmPass.getText().toString().trim();
+                final String phoneNumber=getIntent().getStringExtra("phoneNumber");
 
                 if (TextUtils.isEmpty(name)){
                     signName.setError("Name is required");
@@ -84,16 +83,19 @@ public class SignUpActivity extends AppCompatActivity {
                     return;
                 }
 
-                HelperClass helperClass=new HelperClass(name,email,password,phoneNumber);
-                reference.child(phoneNumber).setValue(helperClass);
+
 
                 mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
+                            HelperClass helperClass=new HelperClass(name,email,password,phoneNumber);
+                            userId=mAuth.getCurrentUser().getUid();
+                            reference.child(userId).setValue(helperClass);
+                            Toast.makeText(SignUpActivity.this,"Registration done",Toast.LENGTH_SHORT).show();
+                            new Intent(SignUpActivity.this, HomeActivity.class);
 
-                        Toast.makeText(SignUpActivity.this,"Registration done",Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(SignUpActivity.this,HomeActivity.class));
+
                         }
                         else{
                             Toast.makeText(SignUpActivity.this,"Error !"+task.getException().getMessage(),Toast.LENGTH_SHORT).show();
