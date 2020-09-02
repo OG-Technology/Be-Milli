@@ -1,8 +1,5 @@
-
-
-        package com.example.be_milli;
-
-        import androidx.annotation.NonNull;
+package com.example.be_milli;
+import androidx.annotation.NonNull;
         import androidx.appcompat.app.AppCompatActivity;
 
         import android.app.Activity;

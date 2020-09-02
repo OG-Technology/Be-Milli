@@ -109,7 +109,6 @@
 
     <RelativeLayout
 
-
         android:id="@+id/homeRelativeLayout"
         android:layout_width="430dp"
         android:layout_height="match_parent"
@@ -175,7 +174,7 @@
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginTop="-64dp"
-            android:layout_marginEnd="57dp"
+            android:layout_marginEnd="70dp"
             app:isHideTimeBackground="false"
             app:isShowDay="true"
             app:isShowHour="true"
