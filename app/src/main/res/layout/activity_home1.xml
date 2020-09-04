@@ -102,7 +102,7 @@
       app:suffixSecond="s"
       app:suffixTextColor="#FFFFFF"
       app:suffixTextSize="12sp"
-      app:timeBgColor="#5766B3"
+      app:timeBgColor="#d67e42"
       app:timeBgRadius="4dp"
       app:timeTextColor="#FFFFFF"
       app:timeTextSize="32sp" />
@@ -164,6 +164,7 @@
       android:text="Buy Your Tickets"
       android:textAllCaps="false" />
 
+
   <com.luseen.spacenavigation.SpaceNavigationView
       android:id="@+id/space"
       android:layout_width="wrap_content"
@@ -183,6 +184,8 @@
       app:space_item_text_size="@dimen/space_item_text_default_size">
 
   </com.luseen.spacenavigation.SpaceNavigationView>
+
+
 
 
  </RelativeLayout>
