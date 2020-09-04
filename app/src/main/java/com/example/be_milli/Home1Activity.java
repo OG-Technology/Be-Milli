@@ -5,9 +5,12 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -34,6 +37,10 @@ public class Home1Activity extends AppCompatActivity implements NavigationView.O
     ImageView proImg;
     FirebaseDatabase mDatabase;
     DatabaseReference mReference;
+    FirebaseUser user;
+    TextView userName,headerName;
+
+    String userId;
     long countDownToNewYear;
     protected void onCreate(Bundle saveInstanceState) {
         super.onCreate(saveInstanceState);
@@ -41,35 +48,43 @@ public class Home1Activity extends AppCompatActivity implements NavigationView.O
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         proImg=findViewById(R.id.profile_image2);
-
+        userName=findViewById(R.id.nameTextView2);
+            View headerView=navigationView.getHeaderView(0);
+            headerName=headerView.findViewById(R.id.navNameTextView);
 
         dropDownNav=findViewById(R.id.space);
         dropDownNav.addSpaceItem(new SpaceItem("Notification", R.drawable.ntf_icon));
         dropDownNav.addSpaceItem(new SpaceItem("Message", R.drawable.msg_icon));
 
-
-
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        if(user!=null) {
+            userId = user.getUid();
+        }
         mDatabase= FirebaseDatabase.getInstance();
-        mReference=mDatabase.getReference().child("Time");
+        mReference=mDatabase.getReference();
         final CountdownView countDown=findViewById(R.id.countdownView);
 
 //countdown
         mReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String time=snapshot.getValue().toString();
+                String time=snapshot.child("Time").getValue().toString();
                 System.out.println(time);
                 long targetDate=Long.parseLong(time);
 
-                System.out.println(targetDate);
+
                 Date now=new Date();
 
                 long currentTime=now.getTime();
-                System.out.println("Current Time"+currentTime);
 
                 countDownToNewYear=targetDate-currentTime;
-                System.out.println("to Time"+countDownToNewYear);
+
                 countDown.start(countDownToNewYear);
+
+                String nameUser=snapshot.child("User").child(userId).child("name").getValue().toString();
+                userName.setText(nameUser);
+                headerName.setText(nameUser);
+
 
             }
 

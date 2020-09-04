@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="4dp"
-        android:text="Narsingdi"
+        android:text="Bangladesh"
         android:textColor="#FBFAFA"
         android:textSize="16sp" />
 </LinearLayout>
