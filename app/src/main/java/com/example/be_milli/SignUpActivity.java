@@ -93,7 +93,7 @@ public class SignUpActivity extends AppCompatActivity {
                             userId=mAuth.getCurrentUser().getUid();
                             reference.child(userId).setValue(helperClass);
                             Toast.makeText(SignUpActivity.this,"Registration done",Toast.LENGTH_SHORT).show();
-                            new Intent(SignUpActivity.this, Home1Activity.class);
+                            startActivity(new Intent(SignUpActivity.this,Home1Activity.class));
 
 
                         }
