@@ -58,12 +58,14 @@ public class TicketActivity extends AppCompatActivity {
                 ticketQuery.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if (snapshot.getChildrenCount()>0){
+
+                        System.out.println("sagor "+snapshot.getChildrenCount());
+                       if (snapshot.getChildrenCount()>0){
                             Toast.makeText(TicketActivity.this,"Same Number",Toast.LENGTH_SHORT).show();
 
                         }
                         else{
-                            tickerView.setText(numberString);
+                           tickerView.setText(numberString);
                         }
                     }
 
