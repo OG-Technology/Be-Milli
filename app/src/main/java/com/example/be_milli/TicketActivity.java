@@ -35,6 +35,11 @@ public class TicketActivity extends AppCompatActivity {
     FirebaseDatabase TicketDatabase;
     DatabaseReference TicketReference;
 
+    TextView ticket2 = (TextView) findViewById(R.id.ticket2);
+    TextView ticket3 = (TextView) findViewById(R.id.ticket3);
+    TextView ticket4 = (TextView) findViewById(R.id.ticket4);
+    TextView ticket5 = (TextView) findViewById(R.id.ticket5);
+
 
 
     @Override
@@ -83,7 +88,9 @@ public class TicketActivity extends AppCompatActivity {
 
                         } else {
                             tickerView.setText(numberString);
-
+                            TextView ticket1 = (TextView) findViewById(R.id.ticket1);
+                            ticket1.setVisibility(View.VISIBLE);
+                            ticket1.setText(numberString);
                         }
                     }
 

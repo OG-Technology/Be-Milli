@@ -140,7 +140,7 @@ public class RegistrationActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             loadingBar.dismiss();
                             Toast.makeText(RegistrationActivity.this, "Congratulations. You are logged in successfully", Toast.LENGTH_SHORT).show();
-                            sendUserToHomeActivity();
+                            sendUserToHome1Activity();
                         } else {
                             loadingBar.dismiss();
                             String e = task.getException().toString();
@@ -149,7 +149,7 @@ public class RegistrationActivity extends AppCompatActivity {
                     }
                 });
     }
-    private void sendUserToHomeActivity(){
+    private void sendUserToHome1Activity(){
         Intent intent = new Intent(RegistrationActivity.this, SignUpActivity.class);
         intent.putExtra("phoneNumber",phoneNumber);
         startActivity(intent);
