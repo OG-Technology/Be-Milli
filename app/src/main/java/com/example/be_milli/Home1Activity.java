@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -39,12 +40,14 @@ public class Home1Activity extends AppCompatActivity implements NavigationView.O
     DatabaseReference mReference;
     FirebaseUser user;
     TextView userName,headerName;
+    Button buyTicket;
 
     String userId;
     long countDownToNewYear;
     protected void onCreate(Bundle saveInstanceState) {
         super.onCreate(saveInstanceState);
         setContentView(R.layout.activity_home1);
+        buyTicket=findViewById(R.id.button2);
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         proImg=findViewById(R.id.profile_image2);
@@ -130,6 +133,14 @@ public class Home1Activity extends AppCompatActivity implements NavigationView.O
             }
         });
 
+        buyTicket.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Home1Activity.this, TicketActivity.class);
+                startActivity(i);
+            }
+        });
+
 }
     @Override
     public void onBackPressed(){
@@ -153,5 +164,6 @@ public class Home1Activity extends AppCompatActivity implements NavigationView.O
 
         return true;
     }
+
 }
 

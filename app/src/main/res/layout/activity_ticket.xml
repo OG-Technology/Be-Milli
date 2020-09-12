@@ -12,25 +12,22 @@
         android:id="@+id/textTicket"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="78dp"
-        android:layout_marginBottom="27dp"
-
+        android:layout_marginBottom="8dp"
 
 
         android:textColor="#F8B249"
         android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/buttonTicketGen"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/buttonTicketGen"
         android:layout_width="153dp"
         android:layout_height="52dp"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="142dp"
+        android:layout_marginTop="176dp"
         android:layout_marginEnd="49dp"
         android:background="@drawable/button"
         android:text="Genarate Ticket"
@@ -43,7 +40,7 @@
         android:layout_width="153dp"
         android:layout_height="52dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="142dp"
+        android:layout_marginTop="176dp"
         android:layout_marginEnd="28dp"
         android:background="@drawable/button"
         android:text="Confirm"

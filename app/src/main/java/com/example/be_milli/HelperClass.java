@@ -3,6 +3,21 @@ package com.example.be_milli;
 public class HelperClass {
 
     String name,email,password,phoneNumber;
+    String ticket;
+
+    public String getTicket() {
+        return ticket;
+    }
+
+    public void setTicket(String ticket) {
+        this.ticket = ticket;
+    }
+
+    public HelperClass(String ticket) {
+        this.ticket = ticket;
+    }
+
+
 
     public HelperClass() {
 
@@ -46,4 +61,6 @@ public class HelperClass {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+
+
 }
