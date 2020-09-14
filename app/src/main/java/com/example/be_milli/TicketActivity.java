@@ -42,8 +42,7 @@ public class TicketActivity extends AppCompatActivity {
     FirebaseAuth tAuth;
     FirebaseDatabase TicketDatabase;
     DatabaseReference TicketReference;
-    SwipeMenuListView listView = (SwipeMenuListView) findViewById(R.id.listView);
-
+    SwipeMenuListView listView;
 
 
     @Override
@@ -66,6 +65,7 @@ public class TicketActivity extends AppCompatActivity {
         tickerView.setGravity(Gravity.START);
         tickerView.setText("0000000");
 
+        listView = (SwipeMenuListView) findViewById(R.id.listView);
         final ArrayList<String> list = new ArrayList<>();
 
 
