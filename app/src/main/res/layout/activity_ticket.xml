@@ -8,26 +8,44 @@
     tools:context=".TicketActivity">
 
 
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="240dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="16dp"
+        android:text="Buy Your Ticket"
+        android:textAlignment="center"
+        android:textColor="#081A7C"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
     <com.robinhood.ticker.TickerView
         android:id="@+id/textTicket"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
+
+        android:layout_marginTop="16dp"
         android:layout_marginBottom="8dp"
-
-
         android:textColor="#F8B249"
         android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/buttonTicketGen"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.523"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <Button
         android:id="@+id/buttonTicketGen"
         android:layout_width="153dp"
         android:layout_height="52dp"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="176dp"
+        android:layout_marginTop="140dp"
         android:layout_marginEnd="49dp"
         android:background="@drawable/button"
         android:text="Genarate Ticket"
@@ -40,7 +58,7 @@
         android:layout_width="153dp"
         android:layout_height="52dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="176dp"
+        android:layout_marginTop="140dp"
         android:layout_marginEnd="28dp"
         android:background="@drawable/button"
         android:text="Confirm"
@@ -48,65 +66,34 @@
         app:layout_constraintStart_toEndOf="@+id/buttonTicketGen"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ScrollView
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
+    <Button
+        android:id="@+id/buyTicket"
+        android:layout_width="188dp"
+        android:layout_height="52dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/button"
+        android:text="Proceed to Pay"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_above="@+id/buyTicket"
+        android:layout_marginTop="26dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonTicketGen"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toBottomOf="@+id/buttonTicketGen">
 
-        <LinearLayout
+        <com.baoyz.swipemenulistview.SwipeMenuListView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:visibility="visible">
+            android:layout_height="match_parent"
+            android:id="@+id/listView">
+        </com.baoyz.swipemenulistview.SwipeMenuListView>
 
-            <TextView
-                android:id="@+id/ticket1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="TextView"
-                android:textSize="30sp"
-                android:visibility="invisible" />
-
-            <TextView
-                android:id="@+id/ticket2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="TextView"
-                android:textSize="30sp"
-                tools:visibility="invisible" />
-
-            <TextView
-                android:id="@+id/ticket3"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="TextView"
-                android:textSize="30sp"
-                tools:visibility="invisible" />
-
-            <TextView
-                android:id="@+id/ticket4"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="TextView"
-                android:textSize="30sp"
-                tools:visibility="invisible" />
-
-            <TextView
-                android:id="@+id/ticket5"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="TextView"
-                android:textSize="30sp"
-                tools:visibility="invisible" />
-        </LinearLayout>
     </ScrollView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
