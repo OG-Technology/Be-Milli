@@ -79,18 +79,21 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_width="391dp"
+        android:layout_height="203dp"
         android:layout_above="@+id/buyTicket"
         android:layout_marginTop="26dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:fillViewport="true"
+
         app:layout_constraintTop_toBottomOf="@+id/buttonTicketGen">
 
         <com.baoyz.swipemenulistview.SwipeMenuListView
+            android:id="@+id/listView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/listView">
+            android:layout_height="match_parent">
+
         </com.baoyz.swipemenulistview.SwipeMenuListView>
 
     </ScrollView>

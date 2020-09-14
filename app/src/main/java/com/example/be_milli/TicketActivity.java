@@ -42,7 +42,7 @@ public class TicketActivity extends AppCompatActivity {
     FirebaseAuth tAuth;
     FirebaseDatabase TicketDatabase;
     DatabaseReference TicketReference;
-    SwipeMenuListView listView;
+
 
 
     @Override
@@ -65,9 +65,12 @@ public class TicketActivity extends AppCompatActivity {
         tickerView.setGravity(Gravity.START);
         tickerView.setText("0000000");
 
-        listView = (SwipeMenuListView) findViewById(R.id.listView);
+        final SwipeMenuListView listView = (SwipeMenuListView) findViewById(R.id.listView);
         final ArrayList<String> list = new ArrayList<>();
 
+
+        final ArrayAdapter adapter = new ArrayAdapter(TicketActivity.this, android.R.layout.simple_list_item_1, list);
+        listView.setAdapter(adapter);
 
 
 
@@ -115,12 +118,14 @@ public class TicketActivity extends AppCompatActivity {
                 String ticketConfirm=tickerView.getText().toString();
                 HelperClass helperClass=new HelperClass(ticketConfirm);
                 TicketReference.child(userId).setValue(helperClass);
+                System.out.println(tickerView.getText());
                 list.add(tickerView.getText());
+                adapter.notifyDataSetChanged();
+
             }
         });
 
-        final ArrayAdapter adapter = new ArrayAdapter(TicketActivity.this, android.R.layout.simple_list_item_1, list);
-        listView.setAdapter(adapter);
+
 
 
         SwipeMenuCreator creator = new SwipeMenuCreator() {
