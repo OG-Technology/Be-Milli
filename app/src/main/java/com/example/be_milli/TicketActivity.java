@@ -81,9 +81,9 @@ public class TicketActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Random rn = new Random();
-                int ticketNumber = rn.nextInt(10);
+                int ticketNumber=rn.nextInt((9999999-1000000)+1)+1000000;
                 final String numberString = String.valueOf(ticketNumber);
-                //int ticketNumber=rn.nextInt((9999999-1000000)+1)+1000000;
+
                 System.out.println("numberString"+numberString);
                 final Query ticketQuery = FirebaseDatabase.getInstance().getReference().child("Ticket").orderByChild("ticketNumber").equalTo(numberString);
                 ticketQuery.addListenerForSingleValueEvent(new ValueEventListener() {
