@@ -85,7 +85,7 @@ public class TicketActivity extends AppCompatActivity {
                 final String numberString = String.valueOf(ticketNumber);
 
                 System.out.println("numberString"+numberString);
-                final Query ticketQuery = FirebaseDatabase.getInstance().getReference().child("Ticket").orderByChild("ticketNumber").equalTo(numberString);
+                final Query ticketQuery = FirebaseDatabase.getInstance().getReference().child("TicketNumber").orderByChild("ticketNumber").equalTo(numberString);
                 ticketQuery.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
