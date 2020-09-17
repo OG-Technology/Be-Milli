@@ -12,17 +12,30 @@
         android:id="@+id/textView4"
         android:layout_width="240dp"
         android:layout_height="55dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:text="Buy Your Ticket"
         android:textAlignment="center"
         android:textColor="#081A7C"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
+        android:id="@+id/btnTicketNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/textTicket"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:initialNumber="1"
+        app:finalNumber="5"
+        app:backGroundColor="@color/colorPrimary">
+
+    </com.cepheuen.elegantnumberbutton.view.ElegantNumberButton>
 
     <com.robinhood.ticker.TickerView
         android:id="@+id/textTicket"
@@ -30,22 +43,22 @@
         android:layout_height="wrap_content"
 
 
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="194dp"
+        android:layout_marginEnd="32dp"
         android:textColor="#F8B249"
         android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/buttonTicketGen"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintEnd_toStartOf="@+id/buttonTicketCon"
+        app:layout_constraintStart_toEndOf="@+id/buttonTicketGen"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/buttonTicketGen"
         android:layout_width="153dp"
         android:layout_height="52dp"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="264dp"
         android:layout_marginEnd="49dp"
         android:background="@drawable/button"
         android:text="Genarate Ticket"
@@ -58,7 +71,7 @@
         android:layout_width="153dp"
         android:layout_height="52dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="264dp"
         android:layout_marginEnd="28dp"
         android:background="@drawable/button"
         android:text="Confirm"
@@ -83,9 +96,9 @@
         android:layout_height="203dp"
         android:layout_above="@+id/buyTicket"
         android:layout_marginTop="26dp"
+        android:fillViewport="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:fillViewport="true"
 
         app:layout_constraintTop_toBottomOf="@+id/buttonTicketGen">
 

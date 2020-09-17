@@ -19,6 +19,7 @@ import com.baoyz.swipemenulistview.SwipeMenu;
 import com.baoyz.swipemenulistview.SwipeMenuCreator;
 import com.baoyz.swipemenulistview.SwipeMenuItem;
 import com.baoyz.swipemenulistview.SwipeMenuListView;
+import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -38,6 +39,8 @@ import java.util.Set;
 public class TicketActivity extends AppCompatActivity {
     TextView ticketNumberText;
     Button btnTicketGen,btnTicketCon;
+    ElegantNumberButton btnTicketNum;
+
 
     FirebaseAuth tAuth;
     FirebaseDatabase TicketDatabase;
@@ -55,10 +58,11 @@ public class TicketActivity extends AppCompatActivity {
         tAuth=FirebaseAuth.getInstance();
         TicketDatabase=FirebaseDatabase.getInstance();
         TicketReference=TicketDatabase.getReference("Ticket");
-        final String userId=tAuth.getCurrentUser().getUid();
+         final String userId=tAuth.getCurrentUser().getUid();
 
         btnTicketGen = findViewById(R.id.buttonTicketGen);
         btnTicketCon=findViewById(R.id.buttonTicketCon);
+        btnTicketNum = (ElegantNumberButton) findViewById(R.id.btnTicketNum);
 
         tickerView.setAnimationDuration(3000);
         tickerView.setAnimationInterpolator(new OvershootInterpolator());
@@ -75,6 +79,13 @@ public class TicketActivity extends AppCompatActivity {
 
 
 
+        btnTicketNum.setOnClickListener(new ElegantNumberButton.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String num = btnTicketNum.getNumber();
+                Log.e("Num", num);
+            }
+        });
 
 
         btnTicketGen.setOnClickListener(new View.OnClickListener() {
