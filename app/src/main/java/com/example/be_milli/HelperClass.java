@@ -5,6 +5,7 @@ public class HelperClass {
     String name,email,password,phoneNumber;
     String ticket;
 
+
     public String getTicket() {
         return ticket;
     }

@@ -38,7 +38,7 @@ import java.util.Set;
 
 public class TicketActivity extends AppCompatActivity {
     TextView ticketNumberText;
-    Button btnTicketGen,btnTicketCon;
+    Button btnTicketGen,btnTicketCon, buttonTicketPay;
     ElegantNumberButton btnTicketNum;
 
 
@@ -58,7 +58,8 @@ public class TicketActivity extends AppCompatActivity {
         tAuth=FirebaseAuth.getInstance();
         TicketDatabase=FirebaseDatabase.getInstance();
         TicketReference=TicketDatabase.getReference("Ticket");
-         final String userId=tAuth.getCurrentUser().getUid();
+        final String userId=tAuth.getCurrentUser().getUid();
+
 
         btnTicketGen = findViewById(R.id.buttonTicketGen);
         btnTicketCon=findViewById(R.id.buttonTicketCon);
@@ -109,7 +110,6 @@ public class TicketActivity extends AppCompatActivity {
                         } else {
                             tickerView.setText(numberString);
 
-
                         }
                     }
 
@@ -126,17 +126,23 @@ public class TicketActivity extends AppCompatActivity {
         btnTicketCon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String ticketConfirm=tickerView.getText().toString();
-                HelperClass helperClass=new HelperClass(ticketConfirm);
-                TicketReference.child(userId).setValue(helperClass);
+
+                //String ticketConfirm=tickerView.getText();
+                //HelperClass helperClass=new HelperClass(ticketConfirm);
+
                 System.out.println(tickerView.getText());
                 list.add(tickerView.getText());
                 adapter.notifyDataSetChanged();
-
+                TicketReference.child(userId).child("ticket").setValue(list);
             }
         });
 
+        //buttonTicketPay.setOnClickListener(new View.OnClickListener() {
+        //    @Override
+        //    public void onClick(View v) {
 
+        //    }
+        //});
 
 
         SwipeMenuCreator creator = new SwipeMenuCreator() {
@@ -183,5 +189,6 @@ public class TicketActivity extends AppCompatActivity {
                 return false;
             }
         });
+
     }
 }
