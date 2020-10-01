@@ -3,19 +3,19 @@ package com.example.be_milli;
 public class HelperClass {
 
     String name,email,password,phoneNumber;
-    String ticket;
+    String ticketnumber;
 
 
     public String getTicket() {
-        return ticket;
+        return ticketnumber;
     }
 
     public void setTicket(String ticket) {
-        this.ticket = ticket;
+        this.ticketnumber = ticket;
     }
 
     public HelperClass(String ticket) {
-        this.ticket = ticket;
+        this.ticketnumber = ticket;
     }
 
 

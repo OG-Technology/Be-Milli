@@ -42,10 +42,26 @@ public class Home1Activity extends AppCompatActivity implements NavigationView.O
     TextView userName,headerName;
     Button buyTicket;
 
+    private FirebaseAuth mFirebaseAuth;
+    private FirebaseAuth.AuthStateListener mLister;
+
     String userId;
     long countDownToNewYear;
+
+    protected void onStart() {
+        super.onStart();
+        mFirebaseAuth.addAuthStateListener(mLister);
+    }
+
+    @Override
+    protected void onStop() {
+
+        if (mLister != null) mFirebaseAuth.removeAuthStateListener(mLister);
+        super.onStop();
+    }
     protected void onCreate(Bundle saveInstanceState) {
         super.onCreate(saveInstanceState);
+        init();
         setContentView(R.layout.activity_home1);
         buyTicket=findViewById(R.id.button2);
         drawerLayout = findViewById(R.id.drawer_layout);
@@ -66,6 +82,7 @@ public class Home1Activity extends AppCompatActivity implements NavigationView.O
         mDatabase= FirebaseDatabase.getInstance();
         mReference=mDatabase.getReference();
         final CountdownView countDown=findViewById(R.id.countdownView);
+
 
 //countdown
         mReference.addValueEventListener(new ValueEventListener() {
@@ -142,6 +159,30 @@ public class Home1Activity extends AppCompatActivity implements NavigationView.O
         });
 
 }
+
+    private void init() {
+
+        mFirebaseAuth = FirebaseAuth.getInstance();
+        mLister = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    Toast.makeText(Home1Activity.this, "your id=" + user.getUid(), Toast.LENGTH_SHORT).show();
+                } else {
+
+                    Intent i = new Intent(Home1Activity.this, WelcomeActivity.class);
+                    startActivity(i);
+
+                }
+
+            }
+        };
+
+
+    }
+
+
     @Override
     public void onBackPressed(){
         if(drawerLayout.isDrawerOpen(GravityCompat.START)){

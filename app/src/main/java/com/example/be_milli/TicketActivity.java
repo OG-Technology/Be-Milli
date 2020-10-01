@@ -93,7 +93,8 @@ public class TicketActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Random rn = new Random();
-                int ticketNumber=rn.nextInt((9999999-1000000)+1)+1000000;
+                //int ticketNumber=rn.nextInt((9999999-1000000)+1)+1000000;
+                int ticketNumber=rn.nextInt(10);
                 final String numberString = String.valueOf(ticketNumber);
 
                 System.out.println("numberString"+numberString);
@@ -103,7 +104,7 @@ public class TicketActivity extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
 
 
-                        System.out.println("sagor " + snapshot.getChildrenCount());
+                        System.out.println("Sagor " + snapshot.getChildrenCount());
                         if (snapshot.getChildrenCount() > 0) {
                             Toast.makeText(TicketActivity.this, "Same Number", Toast.LENGTH_SHORT).show();
 

@@ -16,9 +16,9 @@
         <activity android:name=".TicketActivity" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".WinnerActivity" />
-        <activity android:name=".Home1Activity" />
+        <activity android:name=".WelcomeActivity" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".WelcomeActivity">
+        <activity android:name=".Home1Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

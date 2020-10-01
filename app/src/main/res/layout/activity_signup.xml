@@ -63,30 +63,14 @@
         android:layout_marginEnd="100dp"
         android:layout_marginBottom="8dp"
         android:ems="10"
-        android:hint="@string/password"
+        android:hint="Address"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/signConPassText"
+        app:layout_constraintBottom_toTopOf="@+id/buttonSignConfirm"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signEmailText" />
 
-    <EditText
-        android:id="@+id/signConPassText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="100dp"
-        android:layout_marginBottom="8dp"
-        android:autoText="false"
-        android:ems="10"
-        android:hint="@string/confirm_password"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signPassText" />
 
     <Button
         android:id="@+id/buttonSignConfirm"
@@ -104,7 +88,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signConPassText" />
+        app:layout_constraintTop_toBottomOf="@+id/signPassText" />
 
     <TextView
         android:id="@+id/textView"

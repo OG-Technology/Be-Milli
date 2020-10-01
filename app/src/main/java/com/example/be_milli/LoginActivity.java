@@ -42,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
                 String Password=logInPassword.getText().toString().trim();
 
                 if (TextUtils.isEmpty(Email)){
-                    logInEmail.setError("Email is required");
+                    logInEmail.setError("Phone Number is required");
                     return;
                 }
 
