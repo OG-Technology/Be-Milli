@@ -12,12 +12,12 @@
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RegistrationActivity" />
+
         <activity android:name=".TicketActivity" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".WinnerActivity" />
         <activity android:name=".WelcomeActivity" />
-        <activity android:name=".LoginActivity" />
+
         <activity android:name=".Home1Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
