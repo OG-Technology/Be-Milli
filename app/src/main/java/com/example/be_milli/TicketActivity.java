@@ -47,6 +47,8 @@ public class TicketActivity extends AppCompatActivity {
     DatabaseReference TicketReference,userTicketReference;
     String ticketConfirm;
 
+    TextView one,two,three,four,five;
+
 
 
 
@@ -73,6 +75,14 @@ public class TicketActivity extends AppCompatActivity {
         tickerView.setAnimationInterpolator(new OvershootInterpolator());
         tickerView.setGravity(Gravity.START);
         tickerView.setText("0000000");
+
+        one=findViewById(R.id.textView5);
+        two=findViewById(R.id.textView6);
+        three=findViewById(R.id.textView7);
+        four=findViewById(R.id.textView8);
+
+
+
 
         //final SwipeMenuListView listView = (SwipeMenuListView) findViewById(R.id.listView);
         final ArrayList<String> list = new ArrayList<>();
@@ -107,6 +117,7 @@ public class TicketActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 ticketConfirm=tickerView.getText();
+                three.setText(ticketConfirm);
 
                 DatabaseReference ticketKey=TicketReference.child("Ticket").push();
                 String ticketPushId=ticketKey.getKey();
@@ -119,6 +130,12 @@ public class TicketActivity extends AppCompatActivity {
                 TicketReference.updateChildren(tickets);
                 btnTicketCon.setVisibility(View.INVISIBLE);
                 btnTicketGen.setVisibility(View.VISIBLE);
+                one.setVisibility(View.VISIBLE);
+                two.setVisibility(View.VISIBLE);
+                three.setVisibility(View.VISIBLE);
+                four.setVisibility(View.VISIBLE);
+                buttonTicketPay.setVisibility(View.VISIBLE);
+
             }
         });
 
