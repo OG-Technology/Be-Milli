@@ -14,8 +14,8 @@
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/profile"
-        app:civ_border_color="#FF000000"
+        android:src="@drawable/ic_baseline_person_24"
+        app:civ_border_color="#EDE9E9"
         app:civ_border_width="2dp" />
 
     <TextView
