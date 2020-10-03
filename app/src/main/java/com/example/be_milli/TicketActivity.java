@@ -44,7 +44,8 @@ public class TicketActivity extends AppCompatActivity {
 
     FirebaseAuth tAuth;
     FirebaseDatabase TicketDatabase;
-    DatabaseReference TicketReference;
+    DatabaseReference TicketReference,userTicketReference;
+    String ticketConfirm;
 
 
 
@@ -59,8 +60,10 @@ public class TicketActivity extends AppCompatActivity {
         tAuth=FirebaseAuth.getInstance();
         TicketDatabase=FirebaseDatabase.getInstance();
         TicketReference=TicketDatabase.getReference("Ticket");
+        userTicketReference=TicketDatabase.getReference("UserTicket");
         final String userId=tAuth.getCurrentUser().getUid();
         final Map tickets=new HashMap();
+        final Map userTickets=new HashMap();
 
         btnTicketGen = findViewById(R.id.buttonTicketGen);
         btnTicketCon=findViewById(R.id.buttonTicketCon);
@@ -103,9 +106,9 @@ public class TicketActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String ticketConfirm=tickerView.getText();
+                ticketConfirm=tickerView.getText();
 
-                DatabaseReference ticketKey=TicketReference.child("Ticket").child(userId).push();
+                DatabaseReference ticketKey=TicketReference.child("Ticket").push();
                 String ticketPushId=ticketKey.getKey();
 
                 tickets.put(ticketPushId +"/"+"ticket",ticketConfirm);
@@ -119,12 +122,19 @@ public class TicketActivity extends AppCompatActivity {
             }
         });
 
-        //buttonTicketPay.setOnClickListener(new View.OnClickListener() {
-        //    @Override
-        //    public void onClick(View v) {
-
-        //    }
-        //});
+        buttonTicketPay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatabaseReference userTicketKey=userTicketReference.child("UserTicket").child(userId).push();
+                String userTicketPushId=userTicketKey.getKey();
+                if (!ticketConfirm.equals("0000000")) {
+                    userTickets.put(userTicketPushId, ticketConfirm);
+                    userTicketReference.child(userId).updateChildren(tickets);
+                    ticketConfirm="0000000";
+                    tickerView.setText("0000000");
+                }
+            }
+        });
 
 
         SwipeMenuCreator creator = new SwipeMenuCreator() {
@@ -176,7 +186,7 @@ public class TicketActivity extends AppCompatActivity {
     private void ranGen(){
         Random rn = new Random();
         //int ticketNumber=rn.nextInt((9999999-1000000)+1)+1000000;
-        int ticketNumber=rn.nextInt(10);
+        int ticketNumber=rn.nextInt(20);
         final String numberString = String.valueOf(ticketNumber);
 
         System.out.println("numberString"+numberString);
