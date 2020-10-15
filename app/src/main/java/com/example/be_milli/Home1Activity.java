@@ -1,7 +1,12 @@
 package com.example.be_milli;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -28,9 +33,22 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.TimeZone;
 //import java.util.Date;
 
 import org.apache.commons.net.time.TimeTCPClient;
+import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
+import org.apache.http.StatusLine;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+
 import cn.iwgang.countdownview.CountdownView;
 
 public class Home1Activity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -43,6 +61,16 @@ public class Home1Activity extends AppCompatActivity implements NavigationView.O
     FirebaseUser user;
     TextView userName,headerName;
     Button buyTicket;
+
+    String dateStr;
+    String[] Date;
+    String CurrentDate;
+    long CurrentTime;
+    int Month;
+    String CurrentTime2;
+    String DateAndTime;
+    String Datw;
+    Context context;
 
     private FirebaseAuth mFirebaseAuth;
     private FirebaseAuth.AuthStateListener mLister;
@@ -85,6 +113,12 @@ public class Home1Activity extends AppCompatActivity implements NavigationView.O
         mReference=mDatabase.getReference();
         final CountdownView countDown=findViewById(R.id.countdownView);
 
+        if(isNetworkAvailable()){new GoogleTime().execute();}else
+        {
+            Toast.makeText(context, "Sorry no Internet", Toast.LENGTH_SHORT).show();
+        }
+
+
 
 //countdown
         mReference.addValueEventListener(new ValueEventListener() {
@@ -95,29 +129,10 @@ public class Home1Activity extends AppCompatActivity implements NavigationView.O
                 String time=snapshot.child("Time").getValue().toString();
                 System.out.println(time);
                 long targetDate=Long.parseLong(time);
-                try {
-                    TimeTCPClient client = new TimeTCPClient();
-                    try {
-                        // Set timeout of 60 seconds
-                        client.setDefaultTimeout(60000);
-                        // Connecting to time server
-                        // Other time servers can be found at : http://tf.nist.gov/tf-cgi/servers.cgi#
-                        // Make sure that your program NEVER queries a server more frequently than once every 4 seconds
-                        client.connect("nist.time.nosc.us");
-                        System.out.println(client.getDate());
-                        long currentTime=client.getTime();
-                        countDownToNewYear=targetDate-currentTime;
-                    } finally {
-                        client.disconnect();
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                Date now=new Date();
 
-                //Date now=new Date();
-
-                //long currentTime=now.getTime();
-
+                long currentTime=now.getTime();
+                countDownToNewYear=targetDate-currentTime;
 
 
                 countDown.start(countDownToNewYear);
@@ -180,6 +195,114 @@ public class Home1Activity extends AppCompatActivity implements NavigationView.O
         });
 
 }
+    private boolean isNetworkAvailable(){
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        assert connectivityManager != null;
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
+    class GoogleTime extends AsyncTask<Void,Void,Void> {
+        @Override
+        protected Void doInBackground(Void... voids) {
+            try{
+                HttpClient httpclient = new DefaultHttpClient();
+                HttpResponse response = httpclient.execute(new HttpGet("https://google.com/"));
+                StatusLine statusLine = response.getStatusLine();
+                if(statusLine.getStatusCode() == HttpStatus.SC_OK){
+
+                    dateStr = response.getFirstHeader("Date").getValue();
+                    Date  = dateStr.split(" ");
+                    int counter = 0 ;
+                    for(String a : Date){
+                        counter = counter + 1;
+
+                        Log.e("Time - " + counter  , a.trim() );
+
+                    }
+
+
+                    CurrentDate = Date[1]+"/"+Month+"/" + Date[3];
+                    //  String dateFormat = Date[0]
+                    String[] Timee = Date[4].split(":");
+                    int hour = Integer.parseInt(Timee[0]);
+
+                    Log.e("Timeee", hour + " -- " + Timee[1] + " --" + Timee[2]);
+                    int seconds = Integer.parseInt(Timee[2]);
+                    int minutes = Integer.parseInt(Timee[1]);
+                    CurrentTime = seconds + minutes + hour;
+
+
+                    CurrentTime2 = Date[3]+"-" + Month +"-" + Date[1] +" " + hour+":" +Timee[1]+":"+Timee[2];
+
+
+                    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                    simpleDateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+                    java.util.Date myDate = simpleDateFormat.parse(CurrentTime2);
+
+
+
+
+
+                    Date date1 = null;
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                    try {
+                        date1 =myDate;
+                    }catch (Exception e){
+
+                    }
+                    sdf.setTimeZone(TimeZone.getTimeZone("Asia/Dhaka"));
+                    //        System.out.println(sdf.format(date));
+                    Log.e("@@@Date: ",String.valueOf(sdf.format(date1)));
+                    DateAndTime = String.valueOf(sdf.format(date1));
+
+                    Date date = sdf.parse(DateAndTime);
+                    Calendar calendar = Calendar.getInstance();
+                    calendar.setTime(date);
+                    int Da = calendar.get(Calendar.DATE);
+                    int Mm = calendar.get(Calendar.MONTH);
+                    int yy = calendar.get(Calendar.YEAR);
+
+
+                    Datw = Da +""+Mm+""+yy;
+
+
+
+
+
+
+
+
+
+                    // Here I do something with the Date String
+
+                } else{
+                    //Closes the connection.
+                    response.getEntity().getContent().close();
+                    throw new IOException(statusLine.getReasonPhrase());
+                }
+            }catch (ClientProtocolException e) {
+                Log.d("Response", e.getMessage());
+            }catch (IOException e) {
+                Log.d("Response", e.getMessage());
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            Toast.makeText(Home1Activity.this, "Time " + CurrentDate+ "Time :" + DateAndTime +"?"+ Datw    , Toast.LENGTH_SHORT).show();
+            Log.e("Date", CurrentDate);
+            Log.e("DateTime",CurrentTime+"");
+
+
+        }
+
+
+    }
 
     private void init() {
 
