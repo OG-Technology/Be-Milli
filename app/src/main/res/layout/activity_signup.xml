@@ -23,9 +23,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="100dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="16dp"
         android:autofillHints="Name"
         android:ems="10"
         android:hint="Name"
@@ -36,41 +36,56 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
+
     <EditText
         android:id="@+id/signEmailText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="100dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="16dp"
         android:ems="10"
         android:hint="Email Address"
         android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toTopOf="@+id/signPassText"
+        app:layout_constraintBottom_toTopOf="@+id/signPhoneText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signNameText" />
 
-
     <EditText
-        android:id="@+id/signPassText"
+        android:id="@+id/signAddText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="100dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="32dp"
         android:ems="10"
         android:hint="Address"
-        android:inputType="textPassword"
         app:layout_constraintBottom_toTopOf="@+id/buttonSignConfirm"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signPhoneText" />
+
+    <EditText
+        android:id="@+id/signPhoneText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="16dp"
+        android:ems="10"
+
+        android:hint="Phone Number"
+        app:layout_constraintBottom_toTopOf="@+id/signAddText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signEmailText" />
-
 
     <Button
         android:id="@+id/buttonSignConfirm"
@@ -78,17 +93,15 @@
         android:layout_width="273dp"
         android:layout_height="57dp"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="64dp"
         android:layout_marginEnd="100dp"
-        android:layout_marginBottom="86dp"
+        android:layout_marginBottom="64dp"
         android:background="@drawable/button"
         android:text="@string/continueButton"
         android:textAllCaps="false"
         android:textColor="@color/colorPrimaryDark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signPassText" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView"
@@ -98,7 +111,7 @@
         android:layout_marginTop="25dp"
         android:layout_marginEnd="140dp"
         android:layout_marginBottom="8dp"
-        android:text="@string/sign_up_to_continue"
+        android:text="Personal Details"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/signNameText"

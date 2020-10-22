@@ -10,13 +10,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
+import com.google.type.DateTime;
 import com.luseen.spacenavigation.SpaceItem;
 import com.luseen.spacenavigation.SpaceNavigationView;
 import com.luseen.spacenavigation.SpaceOnClickListener;
@@ -27,7 +30,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.Map;
 
 
 import cn.iwgang.countdownview.CountdownView;
@@ -94,7 +103,11 @@ public class Home1Activity extends AppCompatActivity implements NavigationView.O
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String time=snapshot.child("Time").getValue().toString();
-                System.out.println(time);
+                Date DateTime =Calendar.getInstance().getTime();
+                System.out.print("Dateeeeeeeeeeeeeeee"+DateTime);
+
+
+
                 long targetDate=Long.parseLong(time);
                 Date now=new Date();
 
@@ -102,11 +115,11 @@ public class Home1Activity extends AppCompatActivity implements NavigationView.O
                 countDownToNewYear=targetDate-currentTime;
 
 
-                countDown.start(countDownToNewYear);
+               countDown.start(countDownToNewYear);
 
-                String nameUser=snapshot.child("User").child(userId).child("name").getValue().toString();
-                userName.setText(nameUser);
-                headerName.setText(nameUser);
+                //String nameUser=snapshot.child("User").child(userId).child("name").getValue().toString();
+               // userName.setText(nameUser);
+               // headerName.setText(nameUser);
 
 
             }

@@ -154,50 +154,8 @@ public class TicketActivity extends AppCompatActivity {
         });
 
 
-        SwipeMenuCreator creator = new SwipeMenuCreator() {
-
-            @Override
-            public void create(SwipeMenu menu) {
-                // create "open" item
-
-                // set item background
-
-                // set item title
-
-                // add to menu
 
 
-                // create "delete" item
-                SwipeMenuItem deleteItem = new SwipeMenuItem(
-                        getApplicationContext());
-                // set item background
-                deleteItem.setBackground(new ColorDrawable(Color.rgb(0xF9,
-                        0x3F, 0x25)));
-                // set item width
-                deleteItem.setWidth(170);
-                // set a icon
-                deleteItem.setIcon(R.drawable.ic_baseline_delete_24);
-                // add to menu
-                menu.addMenuItem(deleteItem);
-            }
-        };
-
-        /*listView.setMenuCreator(creator);
-
-        listView.setOnMenuItemClickListener(new SwipeMenuListView.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(int position, SwipeMenu menu, int index) {
-                switch (index) {
-                    case 0:
-                        System.out.println("onMenuItemClick: clicked item " + index);
-                        list.remove(position);
-                        adapter.notifyDataSetChanged();
-                        break;
-                }
-                // false : close the menu; true : not close the menu
-                return false;
-            }
-        });*/
 
     }
     private void ranGen(){
