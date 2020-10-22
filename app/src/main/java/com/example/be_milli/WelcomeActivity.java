@@ -34,6 +34,14 @@ public class WelcomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 login();
+                if (user != null) {
+                    Intent i = new Intent(WelcomeActivity.this, SignUpActivity.class);
+                    startActivity(i);
+
+                }
+                else{
+                    login();
+                }
 
             }
     });
