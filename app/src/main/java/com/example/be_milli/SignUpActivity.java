@@ -42,7 +42,7 @@ public class SignUpActivity extends AppCompatActivity {
         signName = findViewById(R.id.signNameText);
         signEmail = findViewById(R.id.signEmailText);
         signPassword = findViewById(R.id.signAddText);
-        signPhone = findViewById(R.id.signPhoneText);
+        //signPhone = findViewById(R.id.signPhoneText);
         //signConfirmPass = findViewById(R.id.signConPassText);
 
         signConfirm = findViewById(R.id.buttonSignConfirm);
@@ -59,7 +59,7 @@ public class SignUpActivity extends AppCompatActivity {
                 final String password = signPassword.getText().toString().trim();
                 final String name = signName.getText().toString().trim();
                 // final String conPass = signConfirmPass.getText().toString().trim();
-                final String phoneNumber = signPhone.getText().toString().trim();
+                final String phoneNumber = FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber();
 
                 if (TextUtils.isEmpty(name)) {
                     signName.setError("Name is required");
@@ -78,6 +78,7 @@ public class SignUpActivity extends AppCompatActivity {
                 reference.child(userId).setValue(helperClass);
                 Intent i = new Intent(SignUpActivity.this, Home1Activity.class);
                 startActivity(i);
+                finish();
 
 
             }
