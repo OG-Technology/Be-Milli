@@ -160,8 +160,8 @@ public class TicketActivity extends AppCompatActivity {
     }
     private void ranGen(){
         Random rn = new Random();
-        //int ticketNumber=rn.nextInt((9999999-1000000)+1)+1000000;
-        int ticketNumber=rn.nextInt(20);
+        int ticketNumber=rn.nextInt((9999999-1000000)+1)+1000000;
+        //int ticketNumber=rn.nextInt(20);
         final String numberString = String.valueOf(ticketNumber);
 
         System.out.println("numberString"+numberString);
