@@ -36,6 +36,7 @@ import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 
 
@@ -47,7 +48,7 @@ public class Home1Activity extends AppCompatActivity implements NavigationView.O
     SpaceNavigationView dropDownNav;
     ImageView proImg;
     FirebaseDatabase mDatabase;
-    DatabaseReference mReference;
+    DatabaseReference mReference,timeRef;
     FirebaseUser user;
     TextView userName,headerName;
     Button buyTicket;
@@ -74,6 +75,9 @@ public class Home1Activity extends AppCompatActivity implements NavigationView.O
         super.onCreate(saveInstanceState);
         init();
         setContentView(R.layout.activity_home1);
+
+
+
         buyTicket=findViewById(R.id.button2);
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
@@ -92,27 +96,38 @@ public class Home1Activity extends AppCompatActivity implements NavigationView.O
         }
         mDatabase= FirebaseDatabase.getInstance();
         mReference=mDatabase.getReference();
+        timeRef=mDatabase.getReference().child("Time");
+
+
         final CountdownView countDown=findViewById(R.id.countdownView);
+
+         // this will create a new unique key
+        Map<String, Object> value = new HashMap<>();
+
+        value.put("Current", ServerValue.TIMESTAMP);
+        timeRef.child(userId).setValue(value);
 
 
 
 //countdown
-        mReference.addValueEventListener(new ValueEventListener() {
+        timeRef.addValueEventListener(new ValueEventListener() {
 
 
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String time=snapshot.child("Time").getValue().toString();
-                Date DateTime =Calendar.getInstance().getTime();
-                System.out.print("Dateeeeeeeeeeeeeeee"+DateTime);
+                String targetTime=snapshot.child("Target").getValue().toString();
+                String currentTime=snapshot.child(userId).child("Current").getValue().toString();
 
 
 
-                long targetDate=Long.parseLong(time);
-                Date now=new Date();
 
-                long currentTime=now.getTime();
-                countDownToNewYear=targetDate-currentTime;
+
+                long targetDate=Long.parseLong(targetTime);
+                long currentDate=Long.parseLong(currentTime);
+
+
+
+                countDownToNewYear=targetDate-currentDate;
 
 
                countDown.start(countDownToNewYear);
